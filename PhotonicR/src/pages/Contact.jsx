@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Contact = () => {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    phone: '',
     org: '',
+    subject: '',
     message: '',
   });
   const [success, setSuccess] = useState(false);
@@ -13,12 +15,43 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setSuccess(true);
-    setForm({ name: '', email: '', org: '', message: '' });
-    setTimeout(() => setSuccess(false), 3500);
+
+    const formData = {
+      access_key: 'a31d554e-047b-44b1-b798-0739874e59cf', 
+      subject: form.subject || 'New Contact from Website',
+      from_name: form.name,
+      email: form.email,
+      message: `Phone: ${form.phone}\nOrganization: ${form.org || 'N/A'}\n\nMessage: ${form.message}`,
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setSuccess(true);
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          org: '',
+          subject: '',
+          message: '',
+        });
+        setTimeout(() => setSuccess(false), 3500);
+      } else {
+        alert('Submission failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Web3Forms submission error:', error);
+      alert('There was an error sending your message. Please try again later.');
+    }
   };
 
   return (
@@ -56,7 +89,33 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Organization <span className="text-gray-400">(optional)</span></label>
+              <label className="block text-gray-700 font-semibold mb-1">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                placeholder="+91-XXXXXXXXXX"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-semibold mb-1">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                placeholder="Subject of your message"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-semibold mb-1">
+                Organization <span className="text-gray-400">(optional)</span>
+              </label>
               <input
                 type="text"
                 name="org"
@@ -85,6 +144,7 @@ const Contact = () => {
               Send Message
             </button>
           </form>
+
           {/* Success Toast */}
           {success && (
             <div className="fixed left-1/2 bottom-8 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full shadow-lg font-semibold z-50 animate-fadein">
@@ -92,6 +152,7 @@ const Contact = () => {
             </div>
           )}
         </div>
+
         {/* Contact Info */}
         <div className="flex-1 bg-gray-50 border-t md:border-t-0 md:border-l border-gray-200 flex flex-col justify-center items-center p-8">
           <div className="space-y-6">
@@ -106,6 +167,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
       {/* Toast Animation */}
       <style>
         {`
@@ -122,7 +184,7 @@ const Contact = () => {
         `}
       </style>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
