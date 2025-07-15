@@ -20,28 +20,28 @@ const reactors = [
 
 const Reactors = () => {
   return (
-    <section className="min-h-[70vh] bg-gray-100 py-16 px-4 flex flex-col items-center">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D1B2A] mb-2 text-center">
+    <section className="min-h-[70vh] bg-gradient-to-br from-white via-[#f1f5f9] to-[#e5e7eb] py-16 px-4 flex flex-col items-center font-sans">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-[#1e293b] mb-2 text-center">
         Our Photoreactors
       </h2>
-      <p className="text-lg text-gray-600 mb-10 text-center">
+      <p className="text-lg text-[#334155] mb-10 text-center">
         Tailored Engineering for Powerful Photochemistry
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
         {reactors.map((reactor, idx) => (
           <div
             key={reactor.name}
-            className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center p-7 text-center group"
+            className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center p-7 text-center border border-[#e5e7eb] hover:border-[#2563eb]/40"
           >
             <img
               src={reactor.img}
               alt={reactor.name}
               className="w-40 h-40 object-cover rounded-xl mb-6 shadow-md"
             />
-            <h3 className="text-xl font-bold text-[#0D1B2A] mb-2">{reactor.name}</h3>
-            <p className="text-gray-600 mb-6">{reactor.desc}</p>
+            <h3 className="text-xl font-bold text-[#1e293b] mb-2">{reactor.name}</h3>
+            <p className="text-[#334155] mb-6">{reactor.desc}</p>
             <button
-              className="px-6 py-2 rounded-full bg-green-400 text-[#0D1B2A] font-bold shadow-md transition-all duration-300 group-hover:bg-green-500 group-hover:shadow-[0_0_16px_4px_#39FF14] focus:outline-none"
+              className="px-6 py-2 rounded-full bg-[#2563eb] text-white font-bold shadow-md transition-all duration-300 hover:bg-[#1d4ed8] focus:outline-none"
             >
               Know More
             </button>

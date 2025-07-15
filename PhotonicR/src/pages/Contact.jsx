@@ -19,7 +19,7 @@ const Contact = () => {
     e.preventDefault();
 
     const formData = {
-      access_key: '4226e0bb-991b-4bb8-8477-e55062bc57a4', 
+      access_key: '4226e0bb-991b-4bb8-8477-e55062bc57a4',
       subject: form.subject || 'New Contact from Website',
       from_name: form.name,
       email: form.email,
@@ -55,65 +55,65 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-[80vh] flex items-center justify-center bg-gray-100 py-12 px-4">
-      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl flex flex-col md:flex-row overflow-hidden">
+    <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-white via-[#f1f5f9] to-[#e5e7eb] py-12 px-4 font-sans">
+      <div className="w-full max-w-4xl bg-white/80 backdrop-blur-md rounded-2xl shadow-xl flex flex-col md:flex-row overflow-hidden border border-[#e5e7eb]">
         {/* Form */}
         <div className="flex-1 p-8">
-          <h2 className="text-3xl font-extrabold text-[#0D1B2A] mb-2">Let’s Collaborate</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className="text-3xl font-extrabold text-[#1e293b] mb-2">Let’s Collaborate</h2>
+          <p className="text-[#334155] mb-8">
             Interested in our reactors or want to explore partnerships?
           </p>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Full Name</label>
+              <label className="block text-[#1e293b] font-semibold mb-1">Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white"
                 placeholder="Your Name"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Email</label>
+              <label className="block text-[#1e293b] font-semibold mb-1">Email</label>
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white"
                 placeholder="you@email.com"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Phone</label>
+              <label className="block text-[#1e293b] font-semibold mb-1">Phone</label>
               <input
                 type="tel"
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white"
                 placeholder="+91-XXXXXXXXXX"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Subject</label>
+              <label className="block text-[#1e293b] font-semibold mb-1">Subject</label>
               <input
                 type="text"
                 name="subject"
                 value={form.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white"
                 placeholder="Subject of your message"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">
+              <label className="block text-[#1e293b] font-semibold mb-1">
                 Organization <span className="text-gray-400">(optional)</span>
               </label>
               <input
@@ -121,25 +121,25 @@ const Contact = () => {
                 name="org"
                 value={form.org}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white"
                 placeholder="Your Organization"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-1">Message</label>
+              <label className="block text-[#1e293b] font-semibold mb-1">Message</label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 resize-none"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] bg-white resize-none"
                 placeholder="How can we help you?"
               />
             </div>
             <button
               type="submit"
-              className="w-full py-3 mt-2 rounded-full bg-green-400 text-[#0D1B2A] font-bold text-lg shadow-md transition-all duration-300 hover:bg-green-500 hover:shadow-[0_0_16px_4px_#39FF14] focus:outline-none"
+              className="w-full py-3 mt-2 rounded-full bg-[#2563eb] text-white font-bold text-lg shadow-md transition-all duration-300 hover:bg-[#1d4ed8] focus:outline-none"
             >
               Send Message
             </button>
@@ -147,22 +147,22 @@ const Contact = () => {
 
           {/* Success Toast */}
           {success && (
-            <div className="fixed left-1/2 bottom-8 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full shadow-lg font-semibold z-50 animate-fadein">
+            <div className="fixed left-1/2 bottom-8 transform -translate-x-1/2 bg-[#2563eb] text-white px-6 py-3 rounded-full shadow-lg font-semibold z-50 animate-fadein">
               Thank you! Your message has been sent.
             </div>
           )}
         </div>
 
         {/* Contact Info */}
-        <div className="flex-1 bg-gray-50 border-t md:border-t-0 md:border-l border-gray-200 flex flex-col justify-center items-center p-8">
+        <div className="flex-1 bg-[#f8fafc] border-t md:border-t-0 md:border-l border-[#e5e7eb] flex flex-col justify-center items-center p-8">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <span className="text-2xl">📧</span>
-              <span className="text-gray-700 font-medium">contact@photonicr.in</span>
+              <span className="text-[#1e293b] font-medium">contact@photonicr.in</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">📞</span>
-              <span className="text-gray-700 font-medium">+91-XXXXXXXXXX</span>
+              <span className="text-[#1e293b] font-medium">+91-XXXXXXXXXX</span>
             </div>
           </div>
         </div>

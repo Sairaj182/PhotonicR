@@ -1,176 +1,154 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// Design tokens for light theme
+const accent = "text-[#2563eb]";
+const headingText = "text-[#1e293b]";
+const glassCard = "bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-[#e5e7eb] hover:border-[#2563eb]/40 transition-all duration-300";
+const blueBtn = "bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-8 py-3 md:px-10 md:py-4 rounded-xl shadow-md transition-all duration-200 text-base md:text-lg";
+const sectionTitle = "font-extrabold text-3xl md:text-4xl tracking-tight mb-6 md:mb-10 " + accent + " font-sans";
+const subTitle = "font-semibold text-xl md:text-2xl text-[#1e293b] mb-3 font-sans";
+const bodyText = "text-[#334155] text-base md:text-lg font-normal font-sans";
+
 const Home = () => {
   return (
-    <main className="bg-gradient-to-b from-gray-50 via-white to-gray-100 min-h-[90vh] py-12 px-4">
-      <div className="container mx-auto max-w-6xl flex flex-col gap-20">
-        {/* HERO */}
-        <div className="flex flex-col md:flex-row items-center gap-12 pt-8 relative">
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#0D1B2A] mb-6 leading-tight mt-8 md:mt-16">
-              Illuminating <span className="text-green-500 underline decoration-green-300">Innovation</span> Through Photochemistry
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 font-medium">
-              Designing the Future of Clean Chemistry with <span className="text-green-500 font-semibold">Smart Photoreactors</span>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
-              <Link
-                to="/contact"
-                className="bg-green-400 hover:bg-green-500 text-[#0D1B2A] font-bold px-7 py-3 rounded-full shadow-lg transition-all duration-300 text-lg ring-2 ring-green-100 hover:ring-green-300"
-              >
-                Get in Touch
-              </Link>
-              <Link
-                to="/reactors"
-                className="border-2 border-green-400 text-green-500 hover:bg-green-400 hover:text-[#0D1B2A] font-bold px-7 py-3 rounded-full transition-all duration-300 text-lg shadow hover:shadow-lg"
-              >
-                Explore Our Reactors
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-              <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-5 flex flex-col items-center">
-                <span className="text-green-400 text-3xl mb-2">🔬</span>
-                <span className="font-bold text-[#0D1B2A]">Cutting-edge R&D</span>
-                <span className="text-gray-500 text-sm mt-1 text-center">Innovative photoreactor technology</span>
-              </div>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-5 flex flex-col items-center">
-                <span className="text-green-400 text-3xl mb-2">🌱</span>
-                <span className="font-bold text-[#0D1B2A]">Sustainable Chemistry</span>
-                <span className="text-gray-500 text-sm mt-1 text-center">Eco-friendly, energy-efficient solutions</span>
-              </div>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-5 flex flex-col items-center">
-                <span className="text-green-400 text-3xl mb-2">🤝</span>
-                <span className="font-bold text-[#0D1B2A]">Collaborative Approach</span>
-                <span className="text-gray-500 text-sm mt-1 text-center">Partnering with academia & industry</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 flex justify-center md:justify-end w-full relative">
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
-                alt="Photoreactor"
-                className="w-72 h-72 object-contain rounded-2xl shadow-2xl border-4 border-green-100"
-              />
-              <div className="absolute -inset-2 rounded-2xl border-2 border-green-200 opacity-30 pointer-events-none"></div>
-              {/* Down arrow to hint at more content */}
-              <div className="absolute left-1/2 -bottom-10 transform -translate-x-1/2 animate-bounce z-10">
-                <svg width="32" height="32" fill="none" viewBox="0 0 24 24">
-                  <path d="M12 5v14m0 0l-6-6m6 6l6-6" stroke="#39FF14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+    <main className="relative min-h-[100vh] pt-28 pb-16 px-4 bg-gradient-to-br from-white via-[#f1f5f9] to-[#e5e7eb] font-sans">
+      {/* Subtle blue background shapes */}
+      <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-0">
+        <div className="absolute top-[-10%] left-[10%] w-[320px] md:w-[420px] h-[320px] md:h-[420px] bg-[#2563eb] opacity-10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-10%] right-[5%] w-[260px] md:w-[360px] h-[260px] md:h-[360px] bg-[#60a5fa] opacity-10 rounded-full blur-3xl"></div>
+      </div>
+      <div className="container mx-auto max-w-7xl flex flex-col gap-28 relative z-10">
 
-        {/* DIVIDER */}
-        <div className="border-t border-gray-200" />
+        {/* HERO */}
+        <section className="flex flex-col items-center text-center gap-8">
+          <h1 className="font-black text-4xl md:text-6xl leading-tight mt-8 md:mt-16 mb-4 text-[#1e293b] tracking-tight">
+            Illuminating <span className="underline decoration-[#2563eb]/60">Innovation</span> <br className="hidden md:block" />Through Photochemistry
+          </h1>
+          <p className="text-xl md:text-2xl text-[#334155] mb-8 font-medium max-w-2xl">
+            Designing the Future of Clean Chemistry with <span className={accent + " font-semibold"}>Smart Photoreactors</span>.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <Link to="/contact" className={blueBtn + " font-bold text-lg"}>Get in Touch</Link>
+            <Link to="/reactors" className="border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white font-semibold px-8 py-3 md:px-10 md:py-4 rounded-xl transition-all duration-200 text-lg shadow bg-white/60 backdrop-blur w-full sm:w-auto">Explore Our Reactors</Link>
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 w-full md:justify-center">
+            <div className={`${glassCard} flex-1 min-w-[220px] max-w-xs p-7 flex flex-col items-center`}>
+              <span className="text-[#2563eb] text-4xl mb-2">🔬</span>
+              <span className="font-bold text-[#1e293b] text-lg">Cutting-edge R&D</span>
+              <span className={bodyText + " mt-1 text-center"}>Innovative photoreactor technology</span>
+            </div>
+            <div className={`${glassCard} flex-1 min-w-[220px] max-w-xs p-7 flex flex-col items-center`}>
+              <span className="text-[#60a5fa] text-4xl mb-2">🌱</span>
+              <span className="font-bold text-[#1e293b] text-lg">Sustainable Chemistry</span>
+              <span className={bodyText + " mt-1 text-center"}>Eco-friendly, energy-efficient solutions</span>
+            </div>
+            <div className={`${glassCard} flex-1 min-w-[220px] max-w-xs p-7 flex flex-col items-center`}>
+              <span className="text-[#1e293b] text-4xl mb-2">🤝</span>
+              <span className="font-bold text-[#1e293b] text-lg">Collaborative Approach</span>
+              <span className={bodyText + " mt-1 text-center"}>Partnering with academia & industry</span>
+            </div>
+          </div>
+        </section>
 
         {/* WHY PHOTONICR */}
-        <div className="flex flex-col md:flex-row gap-10 items-center">
+        <section className="flex flex-col md:flex-row gap-16 items-center">
           <div className="flex-1">
-            <h2 className="text-2xl font-bold text-[#0D1B2A] mb-4">Why PhotonicR?</h2>
-            <ul className="space-y-3 text-gray-700 text-base leading-relaxed">
+            <h2 className="font-bold text-3xl md:text-4xl mb-8 text-[#1e293b]">Why PhotonicR?</h2>
+            <ul className={bodyText + " space-y-6"}>
               <li>
-                <b>Proven Results:</b> Our reactors are trusted by top institutions and deliver measurable improvements in yield and efficiency.
+                <b className="text-[#1e293b]">Proven Results:</b> Our reactors are trusted by top institutions and deliver measurable improvements in yield and efficiency.
               </li>
               <li>
-                <b>Custom Engineering:</b> We tailor every system to your needs, from lab scale to industrial production.
+                <b className="text-[#1e293b]">Custom Engineering:</b> We tailor every system to your needs, from lab scale to industrial production.
               </li>
               <li>
-                <b>Expert Support:</b> Our team guides you from consultation to commissioning and beyond.
+                <b className="text-[#1e293b]">Expert Support:</b> Our team guides you from consultation to commissioning and beyond.
               </li>
               <li>
-                <b>Future-Ready:</b> Built for automation, data integration, and sustainability.
+                <b className="text-[#1e293b]">Future-Ready:</b> Built for automation, data integration, and sustainability.
               </li>
             </ul>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl shadow p-8 w-full max-w-xs text-center border border-green-100">
-              <h3 className="text-green-400 font-bold text-lg mb-2">Did you know?</h3>
-              <p className="text-gray-600 text-base">
-                PhotonicR’s patented light distribution technology can boost photochemical yields by up to <b>40%</b> compared to conventional systems.
+            <div className={`${glassCard} rounded-2xl shadow p-10 w-full max-w-sm text-center`}>
+              <h3 className={subTitle + " " + accent}>Did you know?</h3>
+              <p className={bodyText}>
+                PhotonicR’s patented light distribution technology can boost photochemical yields by up to <b className="text-[#1e293b]">40%</b> compared to conventional systems.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* DIVIDER */}
-        <div className="border-t border-gray-200" />
-
-        {/* "WHAT WE OFFER" */}
-        <div className="flex flex-col md:flex-row gap-8 items-stretch">
-          <div className="flex-1 bg-white rounded-xl shadow-md p-7 flex flex-col justify-between hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-[#0D1B2A] mb-2">Lab to Industry</h3>
-            <p className="text-gray-600 mb-4">
-              From benchtop prototypes to industrial-scale reactors, we deliver scalable solutions for every stage of your photochemistry journey.
-            </p>
-            <Link to="/reactors" className="text-green-500 font-semibold hover:underline mt-auto">See Reactor Types →</Link>
+        {/* WHAT WE OFFER */}
+        <section>
+          <h2 className={sectionTitle + " text-center"}>What We Offer</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className={`${glassCard} p-8 flex flex-col justify-between items-start`}>
+              <h3 className={subTitle}>Lab to Industry</h3>
+              <p className={bodyText + " mb-5"}>
+                From benchtop prototypes to industrial-scale reactors, we deliver scalable solutions for every stage of your photochemistry journey.
+              </p>
+              <Link to="/reactors" className="text-[#2563eb] font-semibold hover:underline mt-auto">See Reactor Types →</Link>
+            </div>
+            <div className={`${glassCard} p-8 flex flex-col justify-between items-start`}>
+              <h3 className={subTitle}>Integrated Automation</h3>
+              <p className={bodyText + " mb-5"}>
+                Our systems feature smart controls, data logging, and remote monitoring for seamless, reproducible results.
+              </p>
+              <Link to="/contact" className="text-[#2563eb] font-semibold hover:underline mt-auto">Request a Demo →</Link>
+            </div>
+            <div className={`${glassCard} p-8 flex flex-col justify-between items-start`}>
+              <h3 className={subTitle}>Sustainability Focus</h3>
+              <p className={bodyText + " mb-5"}>
+                We prioritize energy efficiency and green chemistry, helping you meet your sustainability goals.
+              </p>
+              <Link to="/about" className="text-[#2563eb] font-semibold hover:underline mt-auto">Learn More →</Link>
+            </div>
           </div>
-          <div className="flex-1 bg-white rounded-xl shadow-md p-7 flex flex-col justify-between hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-[#0D1B2A] mb-2">Integrated Automation</h3>
-            <p className="text-gray-600 mb-4">
-              Our systems feature smart controls, data logging, and remote monitoring for seamless, reproducible results.
-            </p>
-            <Link to="/contact" className="text-green-500 font-semibold hover:underline mt-auto">Request a Demo →</Link>
-          </div>
-          <div className="flex-1 bg-white rounded-xl shadow-md p-7 flex flex-col justify-between hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-[#0D1B2A] mb-2">Sustainability Focus</h3>
-            <p className="text-gray-600 mb-4">
-              We prioritize energy efficiency and green chemistry, helping you meet your sustainability goals.
-            </p>
-            <Link to="/about" className="text-green-500 font-semibold hover:underline mt-auto">Learn More →</Link>
-          </div>
-        </div>
-
-        {/* DIVIDER */}
-        <div className="border-t border-gray-200" />
+        </section>
 
         {/* ACHIEVEMENTS SNAPSHOT */}
-        <div>
-          <h2 className="text-2xl font-bold text-[#0D1B2A] mb-6 text-center">Recognized for Innovation</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center hover:shadow-lg transition">
-              <span className="text-green-400 text-3xl mb-2">🛡️</span>
-              <span className="font-bold text-[#0D1B2A] mb-1">Patent Granted</span>
-              <span className="text-gray-500 text-sm text-center">
+        <section>
+          <h2 className={sectionTitle + " text-center"}>Recognized for Innovation</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className={`${glassCard} p-8 flex flex-col items-center`}>
+              <span className="text-[#2563eb] text-4xl mb-3">🛡️</span>
+              <span className="font-bold text-[#1e293b] mb-2 text-lg">Patent Granted</span>
+              <span className={bodyText + " text-center"}>
                 Proprietary photoreactor design for enhanced light efficiency and yields.
               </span>
-              <span className="text-xs text-gray-400 mt-2">Patent No. 2023/PHOTONICR/001</span>
+              <span className="text-xs text-[#2563eb] mt-3">Patent No. 2023/PHOTONICR/001</span>
             </div>
-            <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center hover:shadow-lg transition">
-              <span className="text-green-400 text-3xl mb-2">💸</span>
-              <span className="font-bold text-[#0D1B2A] mb-1">Startup Bihar Funding</span>
-              <span className="text-gray-500 text-sm text-center">
+            <div className={`${glassCard} p-8 flex flex-col items-center`}>
+              <span className="text-[#60a5fa] text-4xl mb-3">💸</span>
+              <span className="font-bold text-[#1e293b] mb-2 text-lg">Startup Bihar Funding</span>
+              <span className={bodyText + " text-center"}>
                 Officially funded under the Government of Bihar’s Startup Bihar Scheme.
               </span>
-              <span className="text-xs text-gray-400 mt-2">Cohort 2024</span>
+              <span className="text-xs text-[#60a5fa] mt-3">Cohort 2024</span>
             </div>
-            <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center hover:shadow-lg transition">
-              <span className="text-green-400 text-3xl mb-2">🎓</span>
-              <span className="font-bold text-[#0D1B2A] mb-1">Academic Collaborations</span>
-              <span className="text-gray-500 text-sm text-center">
+            <div className={`${glassCard} p-8 flex flex-col items-center`}>
+              <span className="text-[#1e293b] text-4xl mb-3">🎓</span>
+              <span className="font-bold text-[#1e293b] mb-2 text-lg">Academic Collaborations</span>
+              <span className={bodyText + " text-center"}>
                 Partnered with IIT Patna, CSIR, and more for real-world photochemistry.
               </span>
-              <span className="text-xs text-gray-400 mt-2">Since 2022</span>
+              <span className="text-xs text-[#1e293b] mt-3">Since 2022</span>
             </div>
           </div>
-        </div>
-
-        {/* DIVIDER */}
-        <div className="border-t border-gray-200" />
+        </section>
 
         {/* TRUSTED BY */}
-        <div>
-          <h3 className="text-lg font-semibold text-[#0D1B2A] mb-4 text-center">Trusted by Innovators & Institutions</h3>
-          <div className="flex flex-wrap gap-8 justify-center items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_of_IIT_Patna.png" alt="IIT Patna" className="h-10 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Bihar_Government_Logo.png" alt="Govt of Bihar" className="h-10 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/CSIR_INDIA_logo.png" alt="CSIR" className="h-10 grayscale hover:grayscale-0 transition" />
+        <section>
+          <h3 className="text-lg md:text-xl font-semibold mb-8 text-center text-[#1e293b]">Trusted by Innovators & Institutions</h3>
+          <div className="flex flex-wrap gap-10 justify-center items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_of_IIT_Patna.png" alt="IIT Patna" className="h-10 md:h-12 grayscale hover:grayscale-0 transition-all duration-300 drop-shadow" />
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Bihar_Government_Logo.png" alt="Govt of Bihar" className="h-10 md:h-12 grayscale hover:grayscale-0 transition-all duration-300 drop-shadow" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/CSIR_INDIA_logo.png" alt="CSIR" className="h-10 md:h-12 grayscale hover:grayscale-0 transition-all duration-300 drop-shadow" />
             {/* Add more logos as needed */}
           </div>
-        </div>
+        </section>
       </div>
     </main>
   )
